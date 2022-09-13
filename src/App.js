@@ -7,9 +7,8 @@ import Textform from './Components/Textform';
 import { useState } from 'react';
 import {
   BrowserRouter as Router,
-  Routes,
   Route,
-  BrowserRouter,
+  Routes,
   // Link
 } from "react-router-dom";
 
@@ -75,25 +74,18 @@ function App() {
   }
   return (
     <>
-    <BrowserRouter>
-      <Navbar title="V1nlands" mode={mode} togglemodeDark={togglemodeDark} buttonText={buttonText} togglemodeContrast={togglemodeContrast} togglemodeJoy={togglemodeJoy} />
-      <div className='container'>
-        
-        <Routes>
-          <Route path="/Hero">
-          element={<Hero />}
-          </Route>
+      <Router>
+        <Navbar title="V1nlands" mode={mode} togglemodeDark={togglemodeDark} buttonText={buttonText} togglemodeContrast={togglemodeContrast} togglemodeJoy={togglemodeJoy} />
+        <div className='container'>
+          <Routes>
+            <Route exact path="/" element={<Hero />}/>
+          </Routes>
+          <Routes>
+            <Route exact path="/Link" element={<Textform />} />
+          </Routes>
 
-          <Route path="/">
-          element={<Textform />}
-            
-          </Route>
-        </Routes>
-
-        
-      </div>
-      
-      </BrowserRouter>
+        </div>
+      </Router>
     </>
   );
 }
